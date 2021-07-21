@@ -1,6 +1,6 @@
 <?php
 
-$connect = new PDO('mysql:host=localhost;dbname=commentdb', 'root', '');
+$connect = new PDO('mysql:host=sql210.epizy.com;dbname=epiz_29199337_orcaphpdatabase', 'epiz_29199337', 'd5F7f2VdQTB8Mm');
 
 $error = '';
 $name = '';
