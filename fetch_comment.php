@@ -83,7 +83,7 @@ foreach ($result as $row) {
 
 echo $output;
 
-function get_reply_comment($connect, $father_id = 0, $marginleft = 0)
+function get_reply_comment($connect, $father_id = 0)
 {
     $query = "SELECT * FROM comments WHERE father_id = '" . $father_id . "' ";
     $output = '';
@@ -91,11 +91,7 @@ function get_reply_comment($connect, $father_id = 0, $marginleft = 0)
     $statement->execute();
     $result = $statement->fetchAll();
     $count = $statement->rowCount();
-    if ($father_id == 0) {
-        $marginleft = 0;
-    } else {
-        $marginleft = $marginleft + 48;
-    }
+ 
     if ($count > 0) {
         foreach ($result as $row) {
             $output .= '
