@@ -23,17 +23,16 @@ foreach ($result as $row) {
  <div class="card bg-light">
      <div class="row">
          <div class="col-11 d-flex pt-3">
-             <h4 class="fw-bold">' . $row["name"] . ' &nbsp; <h5 class="fw-normal"> ' . $row["created_at"] . ' </h5>
+             <h4 class="fw-bold"> ' . htmlentities($row["name"]) . ' &nbsp; <h5 class="fw-normal"> ' . htmlentities($row["created_at"]) . ' </h5>
          </div>
          <div class="col-1 pt-3">
-             <h5>' . $row["id"] . '</h5>
-             <button onclick="showform(' . $row['id'] . ')">button</button>
+             <button onclick="showform(' . $row['id'] . ')">reply</button>
              </form>
              </div>
      </div>
          <div class="row">
              <div>
-                 <h5 class="fw-normal"> ' . $row["comment"] . ' </h5>
+                 <h5 class="fw-normal"> ' . htmlentities($row["comment"]) . ' </h5>
          </div>
      </div>
 
@@ -46,13 +45,13 @@ foreach ($result as $row) {
                     <h4 class="fw-bold">Email*</h4>
                 </div>
                 <div class="col-4">
-                    <input type="text" id="email" name="email" class="form-control form-control-sm mb-2">
+                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" name="email" class="form-control form-control-sm mb-2" required>
                 </div>
                 <div class="col-2">
                     <h4 class="fw-bold">Name*</h4>
                 </div>
                 <div class="col-4">
-                    <input type="text" id="name" name="name" class="form-control form-control-sm mb-2">
+                    <input type="text" id="name" name="name" class="form-control form-control-sm mb-2" required>
                 </div>
             </div>
             <div class="row pt-5">
@@ -60,7 +59,7 @@ foreach ($result as $row) {
                     <h4 class="fw-bold">Comment*</h4>
                 </div>
                 <div class="col-9">
-                    <input type="text" id="comment_data" name="comment_data" class="form-control form-control-lg mb-3" style="height:100px; width:1075px">
+                    <input type="text" id="comment_data" name="comment_data" class="form-control form-control-lg mb-3" style="height:100px; width:1075px" required>
                 </div>
             </div>
             <div class="row pt-5">
@@ -106,9 +105,9 @@ function get_reply_comment($connect, $father_id = 0, $marginleft = 0)
            <div class="col-10">
                 <div class="card bg-light">
                      <div class="col-11 d-flex pt-3">
-                        <h4 class="fw-bold">' . $row["name"] . ' &nbsp; <h5 class="fw-normal"> ' . $row["created_at"] . ' </h5>
+                        <h4 class="fw-bold">' . htmlentities($row["name"]) . ' &nbsp; <h5 class="fw-normal"> ' . $row["created_at"] . ' </h5>
                      </div>
-                    <h5 class="fw-normal"> ' . $row["comment"] . ' </h5>
+                    <h5 class="fw-normal"> ' . htmlentities($row["comment"]) . ' </h5>
                 </div>
                 <div>
             </div>
