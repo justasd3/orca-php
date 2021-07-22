@@ -27,7 +27,7 @@
                     <h4 class="fw-bold">Email*</h4>
                 </div>
                 <div class="col-4">
-                    <input type="text" id="email" name="email" class="form-control form-control-sm mb-2">
+                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" name="email" class="form-control form-control-sm mb-2">
                 </div>
                 <div class="col-2">
                     <h4 class="fw-bold">Name*</h4>
@@ -66,7 +66,6 @@
             event.preventDefault();
 
             var form_data = $(this).serialize();
-            alert(form_data);
             $.ajax({
                 url: "insert_comment.php",
                 method: "POST",
